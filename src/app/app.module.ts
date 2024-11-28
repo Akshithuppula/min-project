@@ -11,7 +11,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { AllEmployeeComponent } from './all-employee/all-employee.component';
 import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { SignupComponent } from './signup/signup.component';
     CreateEmployeeComponent,
     AllEmployeeComponent,
     HomeComponent,
-    SignupComponent
   ],
   imports: [
     BrowserModule,
