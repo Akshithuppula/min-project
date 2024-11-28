@@ -1,0 +1,8 @@
+img {
+    width: 100%; /* Full viewport width */
+    height: 100%; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure no overflow from the image */
+  }
