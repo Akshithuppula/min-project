@@ -1,0 +1,13 @@
+<!-- <p>dashboard works!</p> -->
+
+<div class="parent">
+    <div class="left-container">
+        <h4 routerLink="home">Home</h4>
+        <h4 routerLink="create-employee">Create Employee</h4>
+        <h4 routerLink="all-employee">ALL Employee</h4>
+        <button  (click)="logout()">Logout</button>
+    </div>
+    <div class="right-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
