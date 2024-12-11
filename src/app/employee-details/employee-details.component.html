@@ -1,0 +1,24 @@
+
+
+<h4>id :{{employees.id}}</h4>
+<h4>Name :{{employees.name}}</h4>
+
+<h4>Company :{{employees.company}}</h4 >
+<h4>Role:{{employees.role}}</h4>
+<h4>Package :{{employees.package}}</h4>
+<h4>Email{{employees.email}}</h4>
+<h4>Dob:{{employees.dob}}</h4>
+<h4>
+    <!-- address:{{employee.address}} -->
+    address:{{employees.address?.addressline}} <br>
+    city:{{employees.address?.city}} <br>
+    state:{{employees.address?.state}} <br>
+</h4>
+<h4 *ngFor="let employee of employees.hikes">
+    hikes:{{employee.year}}
+</h4>
+<h4>workMode:{{employees.workMode}}</h4>
+<h4>gender:{{employees.gender}}</h4>
+<h4>type:{{employees.type}}</h4>
+<h4>wifibill:{{employees.wifibill}}</h4>
+

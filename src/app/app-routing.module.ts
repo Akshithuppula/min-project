@@ -6,13 +6,17 @@ import { HomeComponent } from './home/home.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { AllEmployeeComponent } from './all-employee/all-employee.component';
 import { AuthenticationGuard } from './authentication.guard';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'dashboard', canActivate:[AuthenticationGuard],component: DashboardComponent,children:[
     {path:'home', component: HomeComponent},
     {path:'create-employee', component: CreateEmployeeComponent},
-    {path:'all-employee', component: AllEmployeeComponent}
+    {path:'all-employee', component: AllEmployeeComponent},
+    {path:'employee-details/:id', component: EmployeeDetailsComponent},
+    {path:'edit-employee/:id', component: CreateEmployeeComponent}
+
   ]},
   {path:'',component:LoginComponent}
 ];

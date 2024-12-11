@@ -1,1 +1,107 @@
-<p>create-employee works!</p>
+<!-- <p>create-employee works!</p> -->
+<h1>{{id ? 'Edit Employee': 'Create Employee'}}</h1>
+
+    <h1 *ngIf="id">Edit Employee</h1>
+    <h1 *ngIf="!id">Create Employee</h1>
+
+<div class="parent">
+
+    <form [formGroup]="employeeForm">
+
+        <label>ID : </label>
+        <input type="text" formControlName="id">
+        <br>
+
+        <label>Name : </label>
+        <input type="text" formControlName="name">
+        <br>
+     
+        <label>Company : </label>
+        <input type="text" formControlName="company">
+        <br> 
+
+        <label>Role : </label>
+        <input type="text" formControlName="role">
+        <br> 
+
+        <label>Package : </label>
+        <input type="number" formControlName="package">
+        <br> 
+
+        <label>Email : </label>
+        <input type="email" formControlName="email">
+        <br>
+
+        <label>DOB : </label>
+        <input type="date" formControlName="dob">
+        <br>
+     
+        <div formGroupName="address">
+
+            <label>addressLine:</label>
+            <input type="text" formControlName="addressLine">
+            <br>
+        
+            <label>city:</label>
+            <input type="text" formControlName="city">
+            <br>
+        
+            <label>state</label>
+            <input type="text" formControlName="state">
+            <br>
+        
+            <label>pincode :</label>
+            <input type="number"  formControlName="pincode">
+            <br>
+
+        </div>  
+
+            <label>hikes :</label>
+            <button (click)="addhike()">Add hikes</button>
+            <br>
+
+            <div formArrayName="hikes">
+                <div *ngFor="let hike of hikesFormArray.controls; let i=index">
+                    <div formGroupName="{{i}}">
+
+                        <h2>hike {{i+1}}</h2>
+
+                        <label>Year : </label>
+                        <input type="text" formControlName="year">
+                        <br>
+
+                        <label>Percentage : </label>
+                        <input type="text" formControlName="percentage">
+                        <br>
+
+                        <button class="btn btn-danger" (click)="deletehike(i)">delete</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <label for="">workMode:</label><br>
+            <input type="radio" name="workMode"  formControlName="workMode" value="workFromOffice">
+            <label for="">workFromOffice</label>
+            <input type="radio" name="workMode"  formControlName="workMode" value="remote">
+            <label for="">remote</label>
+            <br>
+
+            <div *ngIf="employeeForm.get('workMode')?.value=='workFromOffice'">
+                <label >travel Fee</label>
+                <input type="number" formControlName="travelBill">
+                <br>
+            </div>
+
+            <div *ngIf="employeeForm.get('workMode')?.value=='remote'">
+                <label >wifi bill:</label>
+                <input type="number" formControlName="wifibill">
+                <br>
+            </div>
+
+
+        <button (click)="submit()">submite</button>
+   
+
+    </form>
+</div>    

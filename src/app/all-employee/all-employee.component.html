@@ -1,1 +1,81 @@
-<p>all-employee works!</p>
+<input type="text" [(ngModel)]="term" (keyup)="filter()" placeholder="search">
+
+<!-- Sorting -->
+<select [(ngModel)]="column">
+    <option>id</option>
+    <option>name</option>
+    <option>company</option>
+    <option>role</option>
+    <option>package</option>
+    <option>email</option>
+    <option>address</option>
+    <option>dob</option>
+</select>
+
+<select [(ngModel)]="order">
+    <option>asc</option>
+    <option>desc</option>
+</select>
+
+<button class="btn btn-primary" (click)="sort()" >sort</button>
+
+
+<!-- pagination -->
+<select [ngModel]="limit">
+    <option>10</option>
+    <option>20</option>
+    <option>30</option>
+ </select>
+
+ <select [ngModel]="page">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+ </select>
+ <button class="btn btn-primary" (click)="pagination()">pagination</button>
+
+
+
+<table class="table table-dark table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>company</th>
+            <th>role</th>
+            <th>package</th>
+            <th>email</th>
+            <th>dob</th>
+            <th>address</th>
+            <th>hikes</th>
+            <th>workMode</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.company}}</td>
+            <td>{{employee.role}}</td>
+            <td>{{employee.package}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.dob}}</td>
+            <td>{{employee.address?.addressLine}}<br>
+                {{employee.address?.city}}<br>
+                {{employee.address?.state}}<br>
+                {{employee.address?.pincode}}<br>
+            </td>   
+            <td>{{employee.hikes?.[0]?.year || 'NA'}}
+                <br>
+                {{employee.hikes?.[0]?.percentage}}</td>
+            <td>{{employee.workMode}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(employee.id)">delete</button> 
+                <button class="btn btn-danger" routerLink="/dashboard/employee-details/{{employee.id}}">View</button>
+                <button class="btn btn-success" routerLink="/dashboard/edit-employee/{{employee.id}}">Edit</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

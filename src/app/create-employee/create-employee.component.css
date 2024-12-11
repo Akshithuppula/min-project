@@ -1,0 +1,17 @@
+label{
+    width: 111px;
+    padding-left: 10px;
+}
+
+input{
+    width: 63%;
+    margin: 2px;
+}
+.parent{
+   border: 2px solid gray;
+   width: 40%;
+   margin-left: 25%;
+}
+button{
+    margin-left: 25%;
+}
